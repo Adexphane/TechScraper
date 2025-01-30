@@ -25,7 +25,26 @@ const specParser = (cher) => {
     };
   };
 
+  const getFirstMatchedText = (
+    selectors,
+    cher,
+    defaultValue = "Not specified"
+  ) => {
+    for (const selector of selectors) {
+      const element = cher(selector);
+      if (element.length > 0) {
+        const text = element.text().trim();
+        if (text) return text; // Only return if non-empty
+      }
+    }
+    return defaultValue;
+  };
+
 const laptopDetails = (cher) => ({
+  title: getFirstMatchedText(
+    ["h1.mb-md-0.mr-4.d-inline.title-tech-specs", "h1.mb-md-0.mr-4.d-inline","span.page-title.font-weight-md", '[itemprop="name"]'],
+    cher
+  ),
   title: cher("h1.mb-md-0.mr-4.d-inline.title-tech-specs").text().trim(),
   model: cher("div.model-id.text-gray-700").text().trim(),
   rating: cher("a.rating-container").text().trim(),
