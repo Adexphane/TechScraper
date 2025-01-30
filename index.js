@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/dell/product/laptops", async (req, res) => {
-  const { url } = req.body;
+  const { url } = req.query;
 
   if (!url) {
     return res.status(400).json({ error: "URL parameter is required" });
@@ -30,7 +30,7 @@ app.get("/dell/product/laptops", async (req, res) => {
 });
 
 app.get("/dell/product/monitors", async (req, res) => {
-  const { url } = req.body;
+  const { url } = req.query;
 
   if (!url) {
     return res.status(400).json({ error: "URL parameter is required" });
@@ -46,7 +46,7 @@ app.get("/dell/product/monitors", async (req, res) => {
 });
 
 app.get("/lenovo/product/laptops", async (req, res) => {
-    const { url } = req.body;
+    const { url } = req.query;
   
     if (!url) {
       return res.status(400).json({ error: "URL parameter is required" });
