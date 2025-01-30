@@ -45,7 +45,6 @@ const laptopDetails = (cher) => ({
     ["h1.mb-md-0.mr-4.d-inline.title-tech-specs", "h1.mb-md-0.mr-4.d-inline","span.page-title.font-weight-md", '[itemprop="name"]'],
     cher
   ),
-  title: cher("h1.mb-md-0.mr-4.d-inline.title-tech-specs").text().trim(),
   model: cher("div.model-id.text-gray-700").text().trim(),
   rating: cher("a.rating-container").text().trim(),
   specs: specParser(cher).productSpecifications,
